@@ -154,7 +154,9 @@ async function simul(N) {
 }
 
 simul(1000)
-  .then((simulAnalysis) =>
-    console.log(JSON.stringify(simulAnalysis.analysisByTeam.tottenham, null,2))
-  )
+  .then((simulAnalysis) => {
+    console.log(JSON.stringify(simulAnalysis.analysisByTeam.tottenham,null,1))
+    console.log("Winning Percent: ",
+      (simulAnalysis.analysisByTeam.tottenham.winning.length / (simulAnalysis.analysisByTeam.tottenham.matchesPlayed/38)));
+  })
   .catch((err) => console.error(err));
